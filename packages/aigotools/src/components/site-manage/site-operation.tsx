@@ -122,10 +122,11 @@ export default function SiteOperation({
       <DropdownTrigger>
         <Button isIconOnly isLoading={operationing} size="sm">
           <OperationIcon className="w-4 h-4" />
-        </Button>
+        </Button>  
       </DropdownTrigger>
-      <DropdownMenu>
+      <DropdownMenu>  
         <DropdownItem
+          key="toggle-site-publish"
           className={
             site.state === SiteState.published
               ? "text-danger-500"
@@ -136,23 +137,26 @@ export default function SiteOperation({
         >
           {site.state === SiteState.published ? t("unpublish") : t("publish")}
         </DropdownItem>
-        {site.processStage !== ProcessStage.processing ? (
+        {site.processStage !== ProcessStage.processing ? (  
           <DropdownItem
+            key="edit-site"
             className="text-blue-500"
             startContent={<Atom size={14} />}
             onClick={dispatchSite}
           >
             {t("dispatch")}
-          </DropdownItem>
+          </DropdownItem>  
         ) : (
-          <DropdownItem
+          <DropdownItem  
+            key="stop-site"
             startContent={<StopCircle size={14} />}
-            onClick={stopSite}
+            onClick={stopSite}  
           >
             {t("stop")}
           </DropdownItem>
         )}
         <DropdownItem
+          key="delete-site"
           className="text-yellow-500"
           startContent={<Edit size={14} />}
           onClick={onEdit}
@@ -160,8 +164,9 @@ export default function SiteOperation({
           {t("edit")}
         </DropdownItem>
         <DropdownItem
+          key="delete-site"
           className="text-danger-500/50"
-          startContent={<Trash2 size={14} />}
+          startContent={<Trash2 size={14} />}  
           onClick={handleDeleteSite}
         >
           {t("delete")}
