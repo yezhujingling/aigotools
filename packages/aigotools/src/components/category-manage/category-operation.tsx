@@ -7,7 +7,7 @@ import {
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
-import { toast } from "react-toastify";
+import { toast } from "react-toastify";  
 import { Edit, Trash2 } from "lucide-react";
 
 import OperationIcon from "@/components/common/operation-icon";
@@ -32,17 +32,17 @@ export default function CategoryOperation({
       return;
     }
     try {
-      setDeleting(true);
+      setDeleting(true);  
       await deleteCategory(category._id);
 
       await handleSearch();
-    } catch (error) {
+    } catch (error) {  
       console.log(error);
       toast.error(t("deleteSearch"));
     } finally {
       setDeleting(false);
     }
-  }, [category._id, deleting, handleSearch, t]);
+  }, [category._id, deleting, handleSearch, t]);  
 
   return (
     <Dropdown
@@ -50,21 +50,21 @@ export default function CategoryOperation({
       isDisabled={deleting}
     >
       <DropdownTrigger>
-        <Button isIconOnly isLoading={deleting} size="sm">  
-          <OperationIcon className="w-4 h-4" />
+        <Button isIconOnly isLoading={deleting} size="sm">    
+          <OperationIcon className="w-4 h-4" />  
         </Button>
       </DropdownTrigger>
       <DropdownMenu>
         <DropdownItem
-          key="edit"
-          className="text-yellow-500"  
-          startContent={<Edit size={14} />}  
+          key="edit-category"    
+          className="text-yellow-500"    
+          startContent={<Edit size={14} />}    
           onClick={onEdit}
         >
           {t("edit")}
         </DropdownItem>
         <DropdownItem
-          key="delete"
+          key="edit-action"  
           className="text-danger-500/50"
           startContent={<Trash2 size={14} />}  
           onClick={handleDelete}  
