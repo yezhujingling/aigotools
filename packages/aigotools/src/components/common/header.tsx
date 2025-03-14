@@ -52,7 +52,7 @@ export default function Header({ className }: { className?: string }) {
       <Logo />
       <div className="flex items-center gap-2 sm:gap-4">
         <Link href={"https://github.com/someu/aigotools"} target="_blank">
-          <Github className="text-primary cursor-pointer" size={16} />
+          <Github className="text-primary cursor-pointer" size={16} />  
         </Link>
         <LanguageSwitcher />
         <ThemeSwitcher />
@@ -96,16 +96,16 @@ export default function Header({ className }: { className?: string }) {
               />
             </DropdownTrigger>
             <DropdownMenu>
-              <DropdownItem
+              <DropdownItem  
                 key="logout"
-                className="text-danger-400 hover:!text-danger-500"
-                startContent={<LogOut size={14} strokeWidth={3} />}
-                onClick={() => signOut()}
+                className="text-danger-400 hover:!text-danger-500"  
+                startContent={<LogOut size={14} strokeWidth={3} />}  
+                onClick={() => signOut()}  
               >
                 Logout
-              </DropdownItem>
+              </DropdownItem>  
             </DropdownMenu>
-          </Dropdown>
+          </Dropdown>  
         </SignedIn>
       </div>
     </Container>
