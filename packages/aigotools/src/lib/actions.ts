@@ -525,7 +525,8 @@ export async function updateReviewState(reviewId: string, state: ReviewState) {
     if (state === ReviewState.approved) {
       const site = await saveSite(
         createTemplateSite({
-          userId: user.id,
+          // 修改这里，将 user.id 改为 user._id
+          userId: user._id.toString(), 
           name: review.name,
           url: review.url,
         })
