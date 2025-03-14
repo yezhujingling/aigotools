@@ -13,7 +13,7 @@ import clsx from "clsx";
 import { useTranslations } from "next-intl";  
 import { useQuery } from "@tanstack/react-query";  
 
-import CategoryTag from "./cateogry-tag";
+import CategoryTag from "./cateogry-tag";  
 
 import { getFeaturedCategories } from "@/lib/actions";  
 import { Link, useRouter } from "@/navigation";
@@ -89,12 +89,15 @@ export default function Search({
               }}
             >
               {item}
-            </DropdownItem>
+            </DropdownItem>  
           )) as any
         }
         <DropdownItem
-          key="clear-histories"onClick={() => clearHistories()}>        
-          <Button  
+          <DropdownItem
+  key="clear-histories"
+  onClick={() => clearHistories()}
+>          
+          <Button    
             className="w-full"
             color="danger"
             size="sm"  
