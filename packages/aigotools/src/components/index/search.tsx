@@ -7,11 +7,11 @@ import {
   DropdownTrigger,
   Input,
 } from "@nextui-org/react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";  
 import { History, SearchIcon, Trash2 } from "lucide-react";
 import clsx from "clsx";
-import { useTranslations } from "next-intl";
-import { useQuery } from "@tanstack/react-query";
+import { useTranslations } from "next-intl";  
+import { useQuery } from "@tanstack/react-query";  
 
 import CategoryTag from "./cateogry-tag";
 
@@ -92,7 +92,9 @@ export default function Search({
             </DropdownItem>
           )) as any
         }
-        <DropdownItem onClick={() => clearHistories()}>
+        <DropdownItem
+          key="clear-histories"
+ onClick={() => clearHistories()}>    
           <Button
             className="w-full"
             color="danger"
