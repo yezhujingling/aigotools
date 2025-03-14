@@ -40,7 +40,7 @@ export default function CategoryOperation({
       console.log(error);
       toast.error(t("deleteSearch"));
     } finally {
-      setDeleting(false);
+      setDeleting(false);  
     }
   }, [category._id, deleting, handleSearch, t]);
 
@@ -56,6 +56,7 @@ export default function CategoryOperation({
       </DropdownTrigger>
       <DropdownMenu>
         <DropdownItem
+          key="edit-action"
           className="text-yellow-500"
           startContent={<Edit size={14} />}
           onClick={onEdit}
@@ -63,7 +64,8 @@ export default function CategoryOperation({
           {t("edit")}
         </DropdownItem>
         <DropdownItem
-          className="text-danger-500/50"
+          key="edit-action"
+          className="text-danger-500/50"  
           startContent={<Trash2 size={14} />}
           onClick={handleDelete}
         >
