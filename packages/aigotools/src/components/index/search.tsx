@@ -28,7 +28,7 @@ export default function Search({
   category?: string;
   className?: string;
 }) {
-  const [value, setValue] = useState(defaultSearch || "");
+  const [value, setValue] = useState(defaultSearch || "");  
 
   const router = useRouter();
 
@@ -36,7 +36,7 @@ export default function Search({
 
   const [histories, setHistories] = useState([] as string[]);
 
-  const loadHistories = useCallback(() => {
+  const loadHistories = useCallback(() => {  
     try {
       setHistories(JSON.parse(window.localStorage.getItem("histories") || ""));
     } catch {}
@@ -65,7 +65,7 @@ export default function Search({
   const { data: featuredCategories = [] } = useQuery({
     queryKey: ["all-featured-categories"],
     async queryFn() {
-      return await getFeaturedCategories();
+      return await getFeaturedCategories();  
     },
   });
 
@@ -82,20 +82,23 @@ export default function Search({
         {
           histories.map((item, index) => (
             <DropdownItem
-              key={index}
+              key={index}  
               onClick={() => {
                 setValue(item);
                 router.push(`/search?s=${encodeURIComponent(item)}`);
               }}
             >
-              {item}
+              {item}  
             </DropdownItem>
           )) as any
         }
-        <DropdownItem onClick={() => clearHistories()}>
+        <DropdownItem
+  key="clear-histories"
+  onClick={() => clearHistories()}
+>  
           <Button
             className="w-full"
-            color="danger"
+            color="danger"  
             size="sm"
             startContent={<Trash2 size={14} strokeWidth={3} />}
           >
