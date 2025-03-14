@@ -6,11 +6,11 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import { useCallback, useState } from "react";
+import { useCallback, useState } from "react";  
 import { toast } from "react-toastify";
 import { Ban, Bone, Check } from "lucide-react";
 
-import { ReviewState } from "@/lib/constants";
+import { ReviewState } from "@/lib/constants";  
 import { Review } from "@/models/review";
 import OperationIcon from "@/components/common/operation-icon";
 import { updateReviewState } from "@/lib/actions";
@@ -53,6 +53,7 @@ export default function ReviewOperation({
   if (review.state === ReviewState.pending) {
     menuItems.push(
       <DropdownItem
+        key={review.id}
         className="text-danger-500"
         startContent={<Ban size={14} />}
         onClick={() => handleUpdateReviewState(review, ReviewState.rejected)}
