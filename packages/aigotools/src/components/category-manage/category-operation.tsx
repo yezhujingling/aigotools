@@ -23,7 +23,7 @@ export default function CategoryOperation({
   handleSearch: () => void;
   onEdit: () => void;
 }) {
-  const t = useTranslations("categoryManage");
+  const t = useTranslations("categoryManage");  
 
   const [deleting, setDeleting] = useState(false);
 
@@ -50,22 +50,24 @@ export default function CategoryOperation({
       isDisabled={deleting}
     >
       <DropdownTrigger>
-        <Button isIconOnly isLoading={deleting} size="sm">
+        <Button isIconOnly isLoading={deleting} size="sm">  
           <OperationIcon className="w-4 h-4" />
         </Button>
       </DropdownTrigger>
       <DropdownMenu>
         <DropdownItem
-          className="text-yellow-500"
-          startContent={<Edit size={14} />}
+          key="edit"
+          className="text-yellow-500"  
+          startContent={<Edit size={14} />}  
           onClick={onEdit}
         >
           {t("edit")}
         </DropdownItem>
         <DropdownItem
+          key="delete"
           className="text-danger-500/50"
-          startContent={<Trash2 size={14} />}
-          onClick={handleDelete}
+          startContent={<Trash2 size={14} />}  
+          onClick={handleDelete}  
         >
           {t("delete")}
         </DropdownItem>
