@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import { useTranslations } from "next-intl";
-import { toast } from "react-toastify";
+import { toast } from "react-toastify";  
 import {
   Button,
   Table,
@@ -25,7 +25,7 @@ import dayjs from "dayjs";
 import clsx from "clsx";
 import { useQuery } from "@tanstack/react-query";
 import { debounce } from "lodash";
-import { Atom, Axe, Plus, SearchIcon, StopCircle } from "lucide-react";
+import { Atom, Axe, Plus, SearchIcon, StopCircle } from "lucide-react";  
 
 import SiteEdit from "./site-edit";
 import SiteOperation from "./site-operation";
@@ -88,7 +88,7 @@ export default function SitesTable() {
   const { data: categories } = useQuery({
     queryKey: ["all-second-categories"],
     queryFn: async () => {
-      const res = await managerSearchCategories({
+      const res = await managerSearchCategories({  
         page: 1,
         size: 999,
         type: "second",
@@ -99,7 +99,7 @@ export default function SitesTable() {
     initialData: [],
   });
 
-  const stopAllSite = useCallback(async () => {
+  const stopAllSite = useCallback(async () => {  
     toast.promise(
       async () => {
         try {
@@ -155,26 +155,29 @@ export default function SitesTable() {
     <div className="mt-4 relative py-4">
       <div className="flex items-center justify-end gap-4">
         <Dropdown placement="bottom-start">
-          <DropdownTrigger>
+          <DropdownTrigger>  
             <Button color="primary" size="sm" startContent={<Axe size={14} />}>
               {t("operation")}
             </Button>
           </DropdownTrigger>
           <DropdownMenu>
             <DropdownItem
-              startContent={<Atom size={14} />}
+              key="dispatch-all-sites"
+              startContent={<Atom size={14} />}  
               onClick={dispatchAllSite}
             >
               {t("dispatchAll")}
             </DropdownItem>
             <DropdownItem
-              startContent={<StopCircle size={14} />}
+              key="stop-all-sites"
+              startContent={<StopCircle size={14} />}  
               onClick={stopAllSite}
             >
-              {t("stopAll")}
+              {t("stopAll")}  
             </DropdownItem>
             <DropdownItem
-              startContent={<Plus size={14} />}
+              key="create-new-site"
+              startContent={<Plus size={14} />}  
               onClick={() => setSite(createTemplateSite())}
             >
               {t("new")}
