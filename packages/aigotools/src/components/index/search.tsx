@@ -30,7 +30,7 @@ export default function Search({
 }) {
   const [value, setValue] = useState(defaultSearch || "");  
 
-  const router = useRouter();
+  const router = useRouter();  
 
   const t = useTranslations("index");
 
@@ -73,7 +73,7 @@ export default function Search({
     <Dropdown placement="bottom-end">
       <DropdownTrigger>
         <History
-          className="text-primary-400 hover:text-default-foreground transition-all cursor-pointer"
+          className="text-primary-400 hover:text-default-foreground transition-all cursor-pointer"  
           size={16}
           strokeWidth={3}
         />
@@ -82,10 +82,10 @@ export default function Search({
         {
           histories.map((item, index) => (
             <DropdownItem
-              key={index}  
-              onClick={() => {
-                setValue(item);
-                router.push(`/search?s=${encodeURIComponent(item)}`);
+              key={item}    
+              onClick={() => {  
+                setValue(item);  
+                router.push(`/search?s=${encodeURIComponent(item)}`);  
               }}
             >
               {item}  
@@ -97,15 +97,15 @@ export default function Search({
   onClick={() => clearHistories()}
 >  
           <Button
-            className="w-full"
+            className="w-full"  
             color="danger"  
             size="sm"
             startContent={<Trash2 size={14} strokeWidth={3} />}
           >
             {t("clearAll")}
           </Button>
-        </DropdownItem>
-      </DropdownMenu>
+        </DropdownItem>  
+      </DropdownMenu>  
     </Dropdown>
   ) : null;
 
