@@ -21,7 +21,7 @@ import {
 import Container from "./container";
 import Logo from "./logo";
 import { ThemeSwitcher } from "./theme-switcher";
-import LanguageSwitcher from "./language-switcher";
+import LanguageSwitcher from "./language-switcher";  
 
 import { AppConfig } from "@/lib/config";
 import { Link } from "@/navigation";
@@ -97,6 +97,7 @@ export default function Header({ className }: { className?: string }) {
             </DropdownTrigger>
             <DropdownMenu>
               <DropdownItem
+                key="logout"
                 className="text-danger-400 hover:!text-danger-500"
                 startContent={<LogOut size={14} strokeWidth={3} />}
                 onClick={() => signOut()}
