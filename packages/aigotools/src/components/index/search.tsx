@@ -15,7 +15,7 @@ import { useQuery } from "@tanstack/react-query"; 
 
 import CategoryTag from "./cateogry-tag";
 
-import { getFeaturedCategories } from "@/lib/actions";
+import { getFeaturedCategories } from "@/lib/actions";  
 import { Link, useRouter } from "@/navigation";
 import Container from "@/components/common/container";
 
@@ -45,7 +45,7 @@ export default function Search({
   const saveHistories = useCallback(
     (newRecord: string) => {
       window.localStorage.setItem(
-        "histories",
+        "histories",  
         JSON.stringify([newRecord, ...histories].slice(10))
       );
       loadHistories();
@@ -74,18 +74,18 @@ export default function Search({
       <DropdownTrigger>
         <History
           className="text-primary-400 hover:text-default-foreground transition-all cursor-pointer"
-          size={16}
-          strokeWidth={3}
+          size={16}  
+          strokeWidth={3}  
         />
       </DropdownTrigger>
       <DropdownMenu>
         {
-          histories.map((item, index) => (
+          histories.map((item, index) => (  
             <DropdownItem
               key={index}
-              onClick={() => {
+              onClick={() => {  
                 setValue(item);
-                router.push(`/search?s=${encodeURIComponent(item)}`);
+                router.push(`/search?s=${encodeURIComponent(item)}`);  
               }}
             >
               {item}
@@ -93,19 +93,18 @@ export default function Search({
           )) as any
         }
         <DropdownItem
-          key="clear-histories"
- onClick={() => clearHistories()}>    
-          <Button
+          key="clear-histories"onClick={() => clearHistories()}>        
+          <Button  
             className="w-full"
             color="danger"
-            size="sm"
+            size="sm"  
             startContent={<Trash2 size={14} strokeWidth={3} />}
           >
             {t("clearAll")}
           </Button>
         </DropdownItem>
       </DropdownMenu>
-    </Dropdown>
+    </Dropdown>  
   ) : null;
 
   return (
@@ -156,7 +155,7 @@ export default function Search({
                 active={item.name === category}
                 onClick={() => {
                   const url = `/search?s=${encodeURIComponent(
-                    value
+                    value  
                   )}&c=${encodeURIComponent(item.name)}`;
 
                   router.push(url);
