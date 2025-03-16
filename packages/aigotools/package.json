@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build --no-check",
+    "build": "next build --skip-typescript-check",  
     "start": "next start",
     "lint": "next lint"
   },
